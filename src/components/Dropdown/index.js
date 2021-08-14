@@ -8,7 +8,7 @@ export default function Dropdown(props) {
   const [visible, setVisible] = useState(true);
   const [hovered, setHovered] = useState(null);
   const refs =
-    props.items.length > 0
+    props.items && props.items.length > 0
       ? props.items.reduce((acc, val, i) => {
           acc[i] = createRef(val);
           return acc;
@@ -16,7 +16,7 @@ export default function Dropdown(props) {
       : [];
 
   useEffect(() => {
-    setItems(props.items);
+    setItems(props.items ? props.items : []);
     setVisible(props.visible ? false : true);
     setSelected(props.selected);
     setHovered(props.hoveredItem);

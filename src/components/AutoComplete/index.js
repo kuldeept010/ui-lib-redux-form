@@ -12,8 +12,6 @@ export default function AutoComplete(props) {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredIndex, setHoveredIndex] = useState(-1);
 
-  console.log(props);
-
   useEffect(() => {
     setDropdownItems(props.items);
     if (props.input && props.input.value !== undefined) {
@@ -128,6 +126,9 @@ export default function AutoComplete(props) {
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) {
           setVisible(false);
+          if (props.input.onBlur) {
+            props.input.onBlur(e);
+          }
         }
       }}
       tabIndex={-1}
@@ -158,7 +159,7 @@ export default function AutoComplete(props) {
       {props.meta !== undefined &&
         props.meta.touched !== undefined &&
         props.meta.touched &&
-        ((props.meta.error !== undefined && (
+        ((props.meta.error !== undefined && props.meta.error && (
           <span className="error-input">{props.meta.error}</span>
         )) ||
           (props.meta.warning && <span>{props.meta.warning}</span>))}
