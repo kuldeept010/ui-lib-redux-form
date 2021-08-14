@@ -1,0 +1,31 @@
+.ui-dropdown-item{
+  width: inherit;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 10px;
+
+  &:hover{
+    background: #ccc;
+    cursor: pointer;
+  }
+}
+
+.ui-dropdown-item-content{
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ui-dropdown-item-content-text{
+  font-size:  14px;
+  font-weight: 400;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.ui-dropdown-item-selected {
+  font-weight: 700;
+}
+
+.ui-dropdown-item-hovered{
+  background: #ccc;
+}
